@@ -19,16 +19,33 @@ private:
 class Game {
 public:
 	Game() {
-		number = std::make_unique<Number>();
+		srand(time(nullptr));
+		_number = std::make_unique<Number>();
 	}
 
 	void startGame() {
-		srand(time(nullptr));
-		std::cout << "Ugaday" << std::endl;
-		std::cout << number->getNumber();
+		int count = 0;
+		std::cout << "Find my Number!" << std::endl;
+
+		for (int i = 0; i < 10; i++) {
+			std::cout << "Input your number: ";
+			std::cin >> _myNumber;
+			if (_number->getNumber() == _myNumber) {
+				std::cout << "equals!" << std::endl;
+				break;
+			}
+			else
+				std::cout << "not equals..." << std::endl;
+
+			if (_number->getNumber() > _myNumber)
+				std::cout << "My UPPER." << std::endl;
+			else
+				std::cout << "My lower." << std::endl;
+		}
 	}
 private:
-	std::unique_ptr<Number> number;
+	std::unique_ptr<Number> _number;
+	int _myNumber;
 };
 
 int main() {
