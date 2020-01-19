@@ -19,7 +19,6 @@ private:
 class Game {
 public:
 	Game() {
-		srand(time(nullptr));
 		_number = std::make_unique<Number>();
 	}
 
@@ -49,6 +48,7 @@ private:
 };
 
 int main() {
+	srand(time(nullptr));
 	Game game;
 
 	game.startGame();
